@@ -8,7 +8,7 @@
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
         >
-
+    
     <!-- Ressources -->
     <Window.Resources>
 
@@ -63,12 +63,12 @@
             </Setter>
         </Style>
 
-        <!-- Template de la première page (choix du fichier VMDK) -->
+        <!-- Template de la première page (menu) -->
         <DataTemplate DataType="{x:Type local:Menu}">
 
             <DockPanel LastChildFill="False">
 
-                <TextBlock DockPanel.Dock="Top" HorizontalAlignment="Center" FontSize="50" Margin="0 25 0 40" Foreground="#EEE" FontFamily="/content/font/#SEOptimistLight">Menu principal</TextBlock>
+                <TextBlock DockPanel.Dock="Top" HorizontalAlignment="Center" FontSize="60" Margin="0 40 0 50" Foreground="#EEE" FontFamily="/content/font/#SEOptimistLight">Menu principal</TextBlock>
 
                 <UniformGrid Columns="2" DockPanel.Dock="Top" Margin="25 0">
 
@@ -94,17 +94,21 @@
 
                 </UniformGrid>
 
-
-                <TextBlock DockPanel.Dock="Bottom" Text="v0.1" HorizontalAlignment="Right" FontSize="12" Margin="10 7" Foreground="#EEE"/>
-
             </DockPanel>
+
+        </DataTemplate>
+
+        <!-- Template de la première page (menu) -->
+        <DataTemplate DataType="{x:Type local:Connect}">
+
+            <TextBlock>Test</TextBlock>
 
         </DataTemplate>
 
     </Window.Resources>
 
     <!-- Interface -->
-    <DockPanel>
+    <DockPanel LastChildFill="False" >
         <!-- En-tête -->
         <Border DockPanel.Dock="Top" BorderBrush="#59A728" BorderThickness="0 0 0 1">
             <DockPanel LastChildFill="False" Background="#222" MouseLeftButtonDown="DockPanel_MouseLeftButtonDown">
@@ -126,11 +130,14 @@
 
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <ContentControl Content="{Binding}" Width="700">
+                    <ContentControl Content="{Binding}" Width="{Binding Width}">
                     </ContentControl>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
+
+
+        <TextBlock DockPanel.Dock="Bottom" Text="v0.1" HorizontalAlignment="Right" FontSize="12" Margin="10 7" Foreground="#EEE"/>
 
     </DockPanel>
 

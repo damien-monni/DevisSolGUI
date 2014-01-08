@@ -2,17 +2,36 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.ComponentModel;
 
 namespace DevisSolGUI
 {
-    class Menu
+    class Menu : IPage, INotifyPropertyChanged
     {
-        public string Text { get; set; }
+        private string _width;
+        public string Width
+        {
+            get
+            {
+                return _width;
+            }
+            set
+            {
+                _width = value;
+                if (PropertyChanged != null)
+                {
+                    PropertyChanged(this, new PropertyChangedEventArgs("Width"));
+                }
+            }
+        }
 
         //Constructeur
         public Menu()
         {
-            Text = "OK";
+            Width = "700";
         }
+
+        //INotifyPropertyChanged implémentation
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 }
