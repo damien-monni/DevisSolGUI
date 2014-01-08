@@ -8,5 +8,6 @@ namespace DevisSolGUI
     interface IPage
     {
         string Width { get; set; }
+        int Id { get; set; }
     }
 }

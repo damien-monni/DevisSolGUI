@@ -25,9 +25,12 @@ namespace DevisSolGUI
             }
         }
 
+        public int Id { get; set; }
+
         //Constructeur
         public Menu()
         {
+            Id = 0;
             Width = "700";
         }
 

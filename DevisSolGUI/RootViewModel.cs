@@ -37,7 +37,24 @@ namespace DevisSolGUI
                 page.Width = "0";
             }
 
-            PageActive = 0;
+            PageActive = findPageIndex(0);
+        }
+
+        public int findPageIndex(int id)
+        {
+            int index = 0;
+            foreach (IPage page in ViewCollection)
+            {
+                if (page.Id == id)
+                {
+                    return index;
+                }
+                else
+                {
+                    index++;
+                }
+            }
+            return -1;
         }
     }
 }
