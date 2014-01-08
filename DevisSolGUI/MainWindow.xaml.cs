@@ -22,6 +22,7 @@ namespace DevisSolGUI
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = new RootViewModel();
         }
 
         private void CloseCross_MouseLeftButtonUp(object sender, RoutedEventArgs e)

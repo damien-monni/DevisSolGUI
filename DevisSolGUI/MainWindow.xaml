@@ -2,7 +2,7 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:DevisSolGUI"
-        Title="Devis Sol GUI" Height="350" Width="525"
+        Title="Devis Sol GUI" Height="400" Width="700"
         WindowStyle="None"
         Background="#59A728"
         ResizeMode="NoResize"
@@ -16,7 +16,7 @@
         <PathGeometry x:Key="Line"  Figures="M0,0 L1,0"></PathGeometry>
         <PathGeometry x:Key="Cross"  Figures="M0,0 L1,1 M0,1 L1,0"></PathGeometry>
 
-        
+
         <!-- Style -->
 
         <!-- Bouton contenant un Path -->
@@ -55,7 +55,7 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
-                        <Border x:Name="Chrome" CornerRadius="10" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                        <Border x:Name="Chrome" CornerRadius="20" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
                             <ContentPresenter Content="{TemplateBinding Content}"></ContentPresenter>
                         </Border>
                     </ControlTemplate>
@@ -65,8 +65,40 @@
 
         <!-- Template de la première page (choix du fichier VMDK) -->
         <DataTemplate DataType="{x:Type local:Menu}">
-            <StackPanel Orientation="Horizontal">
-            </StackPanel>
+
+            <DockPanel LastChildFill="False">
+
+                <TextBlock DockPanel.Dock="Top" HorizontalAlignment="Center" FontSize="50" Margin="0 25 0 40" Foreground="#EEE" FontFamily="/content/font/#SEOptimistLight">Menu principal</TextBlock>
+
+                <UniformGrid Columns="2" DockPanel.Dock="Top" Margin="25 0">
+
+                    <!-- Bouton Installation -->
+                    <Button Grid.Row="0" Grid.Column="0" Cursor="Hand" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <TextBlock Margin="0" FontSize="40" FontFamily="/content/font/#SEOptimistLight" Height="130" Padding="50 40">Installation</TextBlock>
+                        <Button.Style>
+                            <Style TargetType="Button" BasedOn="{StaticResource TextButtonStyle}">
+                                <Setter Property="Background" Value="#9EC217"/>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+
+                    <!-- Bouton Installation -->
+                    <Button Grid.Row="0" Grid.Column="1" Cursor="Hand" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <TextBlock Margin="0" FontSize="40" FontFamily="/content/font/#SEOptimistLight" TextWrapping="Wrap" Height="130" Padding="50 20" TextAlignment="Center">Tâche manuelle</TextBlock>
+                        <Button.Style>
+                            <Style TargetType="Button" BasedOn="{StaticResource TextButtonStyle}">
+                                <Setter Property="Background" Value="#9EC217"/>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+
+                </UniformGrid>
+
+
+                <TextBlock DockPanel.Dock="Bottom" Text="v0.1" HorizontalAlignment="Right" FontSize="12" Margin="10 7" Foreground="#EEE"/>
+
+            </DockPanel>
+
         </DataTemplate>
 
     </Window.Resources>
@@ -76,19 +108,30 @@
         <!-- En-tête -->
         <Border DockPanel.Dock="Top" BorderBrush="#59A728" BorderThickness="0 0 0 1">
             <DockPanel LastChildFill="False" Background="#222" MouseLeftButtonDown="DockPanel_MouseLeftButtonDown">
-                <TextBlock DockPanel.Dock="Left" Text="Devis SOL - Model Copy" Foreground="#EEE" VerticalAlignment="Center" FontSize="12" Margin="10 0 0 0" FontFamily="/content/font/#Segoe UI Light 8" />
+                <TextBlock DockPanel.Dock="Left" Text="Devis SOL GUI" Foreground="#EEE" VerticalAlignment="Center" FontSize="12" Margin="10 0 0 0" FontFamily="/content/font/#Segoe UI Light 8" />
                 <StackPanel DockPanel.Dock="Right" Height="40" Orientation="Horizontal">
                     <Button Content="{StaticResource Line}"  Click="Minimize_MouseLeftButtonUp" BorderThickness="0" Style="{StaticResource PathButtonStyle}" Width="{Binding Path=Height, RelativeSource={RelativeSource AncestorType={x:Type StackPanel}}}"  Height="{Binding Path=Height, RelativeSource={RelativeSource AncestorType={x:Type StackPanel}}}" HorizontalAlignment="Right" VerticalAlignment="Center" />
                     <Button Content="{StaticResource Cross}"  Click="CloseCross_MouseLeftButtonUp" BorderThickness="0" Style="{StaticResource PathButtonStyle}" Width="{Binding Path=Height, RelativeSource={RelativeSource AncestorType={x:Type StackPanel}}}"  Height="{Binding Path=Height, RelativeSource={RelativeSource AncestorType={x:Type StackPanel}}}" HorizontalAlignment="Right" VerticalAlignment="Center" />
                 </StackPanel>
             </DockPanel>
         </Border>
-        
+
         <!-- Contenu -->
-        <Border>
-            
-        </Border>
-        
+        <ItemsControl DockPanel.Dock="Top" ItemsSource="{Binding ViewCollection}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal"></StackPanel>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <ContentControl Content="{Binding}" Width="700">
+                    </ContentControl>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+
     </DockPanel>
 
 </Window>

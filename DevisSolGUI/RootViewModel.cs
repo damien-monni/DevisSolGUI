@@ -10,7 +10,6 @@ namespace DevisSolGUI
     {
         public ObservableCollection<Object> ViewCollection { get; set; }
 
-
         //Constructeur
         public RootViewModel()
         {

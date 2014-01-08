@@ -90,6 +90,7 @@
     </EmbeddedResource>
     <Resource Include="content\font\cambria.TTC" />
     <Resource Include="content\font\segoeuil.ttf" />
+    <Resource Include="content\font\SEOptimLig.otf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

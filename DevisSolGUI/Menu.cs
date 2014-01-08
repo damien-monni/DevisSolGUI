@@ -7,5 +7,12 @@ namespace DevisSolGUI
 {
     class Menu
     {
+        public string Text { get; set; }
+
+        //Constructeur
+        public Menu()
+        {
+            Text = "OK";
+        }
     }
 }
