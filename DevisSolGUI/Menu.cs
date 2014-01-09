@@ -7,26 +7,8 @@ using System.Windows.Input;
 
 namespace DevisSolGUI
 {
-    class Menu : IPage, INotifyPropertyChanged
+    class Menu : Page, INotifyPropertyChanged
     {
-        private string _width;
-        public string Width
-        {
-            get
-            {
-                return _width;
-            }
-            set
-            {
-                _width = value;
-                if (PropertyChanged != null)
-                {
-                    PropertyChanged(this, new PropertyChangedEventArgs("Width"));
-                }
-            }
-        }
-
-        public int Id { get; set; }
 
         private ICommand _installCommand;
         public ICommand InstallCommand
@@ -56,9 +38,6 @@ namespace DevisSolGUI
         {
             OnChanged(1);
         }
-
-        //INotifyPropertyChanged implémentation
-        public event PropertyChangedEventHandler PropertyChanged;
 
         //Evenement
         public delegate void FireEventHandler(object sender, FireEventArgs fe);

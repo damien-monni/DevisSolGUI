@@ -11,7 +11,7 @@ namespace DevisSolGUI
     {
         private Menu menu = new Menu();
 
-        public ObservableCollection<IPage> ViewCollection { get; set; }
+        public ObservableCollection<Page> ViewCollection { get; set; }
         public int _pageActive;
         public int PageActive
         {
@@ -31,13 +31,13 @@ namespace DevisSolGUI
         public RootViewModel()
         {
             
-            ViewCollection = new ObservableCollection<IPage>();
+            ViewCollection = new ObservableCollection<Page>();
             ViewCollection.Add(menu);
             ViewCollection.Add(new Connect());
 
             menu.FireEvent += new DevisSolGUI.Menu.FireEventHandler(ChangePage);
 
-            foreach (IPage page in ViewCollection)
+            foreach (Page page in ViewCollection)
             {
                 page.Width = "0";
             }
@@ -53,7 +53,7 @@ namespace DevisSolGUI
         public int findPageIndex(int id)
         {
             int index = 0;
-            foreach (IPage page in ViewCollection)
+            foreach (Page page in ViewCollection)
             {
                 if (page.Id == id)
                 {

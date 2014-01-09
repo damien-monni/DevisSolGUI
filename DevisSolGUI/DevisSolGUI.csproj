@@ -57,7 +57,7 @@
     </ApplicationDefinition>
     <Compile Include="Command.cs" />
     <Compile Include="Connect.cs" />
-    <Compile Include="IPage.cs" />
+    <Compile Include="Page.cs" />
     <Compile Include="RootViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
