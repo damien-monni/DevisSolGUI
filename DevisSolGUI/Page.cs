@@ -29,5 +29,28 @@ namespace DevisSolGUI
 
         //INotifyPropertyChanged implémentation
         public event PropertyChangedEventHandler PropertyChanged;
+
+        //Evenement
+        public delegate void FireEventHandler(object sender, FireEventArgs fe);
+        public event FireEventHandler FireEvent;
+
+        // Invoke the Changed event
+        protected virtual void ChangePage(int id)
+        {
+            FireEventArgs e = new FireEventArgs(id);
+            if (FireEvent != null)
+                FireEvent(this, e);
+        }
     }
+
+    public class FireEventArgs : EventArgs
+    {
+        public FireEventArgs(int id)
+        {
+            this.id = id;
+        }
+
+        public int id;
+
+    }  
 }

@@ -7,9 +7,8 @@ using System.Windows.Input;
 
 namespace DevisSolGUI
 {
-    class Menu : Page, INotifyPropertyChanged
+    class Menu : Page
     {
-
         private ICommand _installCommand;
         public ICommand InstallCommand
         {
@@ -36,30 +35,7 @@ namespace DevisSolGUI
 
         public void Install()
         {
-            OnChanged(1);
-        }
-
-        //Evenement
-        public delegate void FireEventHandler(object sender, FireEventArgs fe);
-        public event FireEventHandler FireEvent; 
-
-        // Invoke the Changed event
-        protected virtual void OnChanged(int id)
-        {
-            FireEventArgs e = new FireEventArgs(id);
-            if (FireEvent != null)
-                FireEvent(this, e);
+            ChangePage(1);
         }
     }
-
-    public class FireEventArgs : EventArgs
-    {
-        public FireEventArgs(int id)
-        {
-            this.id = id;
-        }
-
-        public int id;
-
-    }  
 }

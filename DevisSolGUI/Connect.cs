@@ -6,7 +6,7 @@ using System.ComponentModel;
 
 namespace DevisSolGUI
 {
-    class Connect : Page, INotifyPropertyChanged
+    class Connect : Page
     {
 
         public Connect()
