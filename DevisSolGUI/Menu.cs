@@ -54,20 +54,33 @@ namespace DevisSolGUI
 
         public void Install()
         {
-            OnChanged(EventArgs.Empty);
+            OnChanged(1);
         }
 
         //INotifyPropertyChanged implémentation
         public event PropertyChangedEventHandler PropertyChanged;
 
         //Evenement
-        public event EventHandler Changed;
+        public delegate void FireEventHandler(object sender, FireEventArgs fe);
+        public event FireEventHandler FireEvent; 
 
         // Invoke the Changed event
-        protected virtual void OnChanged(EventArgs e)
+        protected virtual void OnChanged(int id)
         {
-            if (Changed != null)
-                Changed(this, e);
+            FireEventArgs e = new FireEventArgs(id);
+            if (FireEvent != null)
+                FireEvent(this, e);
         }
     }
+
+    public class FireEventArgs : EventArgs
+    {
+        public FireEventArgs(int id)
+        {
+            this.id = id;
+        }
+
+        public int id;
+
+    }  
 }

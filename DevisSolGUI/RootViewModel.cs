@@ -35,7 +35,7 @@ namespace DevisSolGUI
             ViewCollection.Add(menu);
             ViewCollection.Add(new Connect());
 
-            menu.Changed += new EventHandler(testWrite);
+            menu.FireEvent += new DevisSolGUI.Menu.FireEventHandler(ChangePage);
 
             foreach (IPage page in ViewCollection)
             {
@@ -45,9 +45,9 @@ namespace DevisSolGUI
             PageActive = findPageIndex(0);
         }
 
-        public void testWrite(object sender, EventArgs e)
+        public void ChangePage(object sender, FireEventArgs e)
         {
-            PageActive = findPageIndex(1);
+            PageActive = findPageIndex(e.id);
         }
 
         public int findPageIndex(int id)
