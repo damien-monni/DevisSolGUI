@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Command.cs" />
     <Compile Include="Connect.cs" />
     <Compile Include="IPage.cs" />
     <Compile Include="RootViewModel.cs" />

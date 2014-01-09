@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.ComponentModel;
+using System.Windows.Input;
 
 namespace DevisSolGUI
 {
@@ -27,6 +28,23 @@ namespace DevisSolGUI
 
         public int Id { get; set; }
 
+        private ICommand _installCommand;
+        public ICommand InstallCommand
+        {
+            get
+            {
+                if (_installCommand == null)
+                {
+                    _installCommand = new Command(Install);
+                    return _installCommand;
+                }
+                else
+                {
+                    return _installCommand;
+                }
+            }
+        }
+
         //Constructeur
         public Menu()
         {
@@ -34,7 +52,22 @@ namespace DevisSolGUI
             Width = "700";
         }
 
+        public void Install()
+        {
+            OnChanged(EventArgs.Empty);
+        }
+
         //INotifyPropertyChanged implémentation
         public event PropertyChangedEventHandler PropertyChanged;
+
+        //Evenement
+        public event EventHandler Changed;
+
+        // Invoke the Changed event
+        protected virtual void OnChanged(EventArgs e)
+        {
+            if (Changed != null)
+                Changed(this, e);
+        }
     }
 }

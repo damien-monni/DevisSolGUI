@@ -9,6 +9,8 @@ namespace DevisSolGUI
 {
     class RootViewModel
     {
+        private Menu menu = new Menu();
+
         public ObservableCollection<IPage> ViewCollection { get; set; }
         public int _pageActive;
         public int PageActive
@@ -28,9 +30,12 @@ namespace DevisSolGUI
         //Constructeur
         public RootViewModel()
         {
+            
             ViewCollection = new ObservableCollection<IPage>();
-            ViewCollection.Add(new Menu());
+            ViewCollection.Add(menu);
             ViewCollection.Add(new Connect());
+
+            menu.Changed += new EventHandler(testWrite);
 
             foreach (IPage page in ViewCollection)
             {
@@ -38,6 +43,11 @@ namespace DevisSolGUI
             }
 
             PageActive = findPageIndex(0);
+        }
+
+        public void testWrite(object sender, EventArgs e)
+        {
+            PageActive = findPageIndex(1);
         }
 
         public int findPageIndex(int id)

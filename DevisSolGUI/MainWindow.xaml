@@ -73,7 +73,7 @@
                 <UniformGrid Columns="2" DockPanel.Dock="Top" Margin="25 0">
 
                     <!-- Bouton Installation -->
-                    <Button Grid.Row="0" Grid.Column="0" Cursor="Hand" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Button Grid.Row="0" Grid.Column="0" Cursor="Hand" VerticalAlignment="Center" HorizontalAlignment="Center" Command="{Binding InstallCommand}">
                         <TextBlock Margin="0" FontSize="40" FontFamily="/content/font/#SEOptimistLight" Height="130" Padding="50 40">Installation</TextBlock>
                         <Button.Style>
                             <Style TargetType="Button" BasedOn="{StaticResource TextButtonStyle}">
