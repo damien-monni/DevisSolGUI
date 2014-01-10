@@ -1,7 +1,6 @@
 ﻿<Window x:Class="DevisSolGUI.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:local="clr-namespace:DevisSolGUI"
         Title="Devis Sol GUI" Height="400" Width="700"
         WindowStyle="None"
         Background="#59A728"
@@ -63,40 +62,7 @@
             </Setter>
         </Style>
 
-        <!-- Template de la première page (menu) -->
-        <DataTemplate DataType="{x:Type local:Menu}">
-
-            <DockPanel LastChildFill="False">
-
-                <TextBlock DockPanel.Dock="Top" HorizontalAlignment="Center" FontSize="60" Margin="0 40 0 50" Foreground="#EEE" FontFamily="/content/font/#SEOptimistLight">Menu principal</TextBlock>
-
-                <UniformGrid Columns="2" DockPanel.Dock="Top" Margin="25 0">
-
-                    <!-- Bouton Installation -->
-                    <Button Grid.Row="0" Grid.Column="0" Cursor="Hand" VerticalAlignment="Center" HorizontalAlignment="Center" Command="{Binding InstallCommand}">
-                        <TextBlock Margin="0" FontSize="40" FontFamily="/content/font/#SEOptimistLight" Height="130" Padding="50 40">Installation</TextBlock>
-                        <Button.Style>
-                            <Style TargetType="Button" BasedOn="{StaticResource TextButtonStyle}">
-                                <Setter Property="Background" Value="#9EC217"/>
-                            </Style>
-                        </Button.Style>
-                    </Button>
-
-                    <!-- Bouton Installation -->
-                    <Button Grid.Row="0" Grid.Column="1" Cursor="Hand" VerticalAlignment="Center" HorizontalAlignment="Center">
-                        <TextBlock Margin="0" FontSize="40" FontFamily="/content/font/#SEOptimistLight" TextWrapping="Wrap" Height="130" Padding="50 20" TextAlignment="Center">Tâche manuelle</TextBlock>
-                        <Button.Style>
-                            <Style TargetType="Button" BasedOn="{StaticResource TextButtonStyle}">
-                                <Setter Property="Background" Value="#9EC217"/>
-                            </Style>
-                        </Button.Style>
-                    </Button>
-
-                </UniformGrid>
-
-            </DockPanel>
-
-        </DataTemplate>
+        
 
         <!-- Template de la première page (menu) -->
         <DataTemplate DataType="{x:Type local:Connect}">
