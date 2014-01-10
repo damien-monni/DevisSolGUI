@@ -30,7 +30,6 @@ namespace DevisSolGUI
         public Menu()
         {
             Id = 0;
-            Width = "700";
         }
 
         public void Install()

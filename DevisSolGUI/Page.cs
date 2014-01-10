@@ -51,6 +51,5 @@ namespace DevisSolGUI
         }
 
         public int id;
-
-    }  
+    }
 }
