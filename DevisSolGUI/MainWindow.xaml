@@ -103,7 +103,7 @@
         <!-- Template de la deuxième page (test) -->
         <DataTemplate DataType="{x:Type local:Connect}">
 
-            <TextBlock>Test</TextBlock>
+            <TextBlock HorizontalAlignment="Center" FontSize="40" Margin="0 40 0 50" Foreground="#EEE" FontFamily="/content/font/#SEOptimistLight">Test de connexion au serveu ISI...</TextBlock>
 
         </DataTemplate>
 

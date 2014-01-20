@@ -42,7 +42,7 @@ namespace DevisSolGUI
                 page.Width = "0";
             }
 
-            PageActive = findPageIndex(0);
+            PageActive = findPageIndex(1);
         }
 
         public void ChangePage(object sender, FireEventArgs e)
