@@ -9,7 +9,6 @@ namespace DevisSolGUI
 {
     class RootViewModel
     {
-        private Menu menu = new Menu();
 
         public ObservableCollection<Page> ViewCollection { get; set; }
         public int _pageActive;
@@ -32,13 +31,14 @@ namespace DevisSolGUI
         {
             
             ViewCollection = new ObservableCollection<Page>();
-            ViewCollection.Add(menu);
+            ViewCollection.Add(new Menu());
             ViewCollection.Add(new Connect());
 
-            menu.FireEvent += new DevisSolGUI.Menu.FireEventHandler(ChangePage);
+            //menu.FireEvent += new DevisSolGUI.Menu.FireEventHandler(ChangePage);
 
             foreach (Page page in ViewCollection)
             {
+                page.FireEvent += new DevisSolGUI.Page.FireEventHandler(ChangePage);
                 page.Width = "0";
             }
 
