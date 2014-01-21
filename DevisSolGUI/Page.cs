@@ -21,14 +21,21 @@ namespace DevisSolGUI
             set
             {
                 _width = value;
-                if (PropertyChanged != null)
-                {
-                    PropertyChanged(this, new PropertyChangedEventArgs("Width"));
-                }
+                OnPropertyChanged("Width");
             }
         }
 
         public int Id { get; set; }
+
+
+        //Use the PropertyChanged event
+        protected void OnPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
 
         //INotifyPropertyChanged implémentation
         public event PropertyChangedEventHandler PropertyChanged;

@@ -9,7 +9,6 @@ namespace DevisSolGUI
 {
     class RootViewModel
     {
-
         public ObservableCollection<Page> ViewCollection { get; set; }
         public int _pageActive;
         public int PageActive
@@ -30,12 +29,9 @@ namespace DevisSolGUI
         //Constructeur
         public RootViewModel()
         {
-            
             ViewCollection = new ObservableCollection<Page>();
             ViewCollection.Add(new Menu());
             ViewCollection.Add(new Connect());
-
-            //menu.FireEvent += new DevisSolGUI.Menu.FireEventHandler(ChangePage);
 
             foreach (Page page in ViewCollection)
             {

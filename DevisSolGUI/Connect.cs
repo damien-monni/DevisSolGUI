@@ -10,6 +10,19 @@ namespace DevisSolGUI
 {
     class Connect : Page
     {
+        private Boolean _connectingAnim;
+        public Boolean ConnectingAnim
+        {
+            get
+            {
+                return _connectingAnim;
+            }
+            set
+            {
+                _connectingAnim = value;
+                OnPropertyChanged("ConnectingAnim");
+            }
+        }
 
         public bool IsConnected { get; set; }
 
@@ -17,6 +30,8 @@ namespace DevisSolGUI
         {
             Id = 1;
         }
+
+        //INotifyPropertyChanged implémentation
 
         //Ping l'adresse "ip"
         public bool PingServer(string ip)
@@ -34,14 +49,15 @@ namespace DevisSolGUI
 
         public override void AtStart()
         {
+            ConnectingAnim = true;
             bool ping = this.PingServer("10.199.137.90");
             if (ping == true)
             {
                 IsConnected = true;
+                Console.WriteLine("test");
             }
             else
             {
-                IsConnected = false;
             }
         }
     }
