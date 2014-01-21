@@ -6,8 +6,11 @@ using System.ComponentModel;
 
 namespace DevisSolGUI
 {
-    class Page : INotifyPropertyChanged
+    abstract class Page : INotifyPropertyChanged
     {
+        //Execute when the page has just been displayed
+        public abstract void AtStart();
+
         private string _width;
         public string Width
         {

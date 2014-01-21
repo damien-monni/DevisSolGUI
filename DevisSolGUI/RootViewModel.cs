@@ -23,6 +23,7 @@ namespace DevisSolGUI
                 ViewCollection.ElementAt(_pageActive).Width = "0";
                 _pageActive = value;
                 ViewCollection.ElementAt(value).Width = "700";
+                ViewCollection.ElementAt(value).AtStart();
             }
         }
 
@@ -42,7 +43,7 @@ namespace DevisSolGUI
                 page.Width = "0";
             }
 
-            PageActive = findPageIndex(1);
+            PageActive = findPageIndex(0);
         }
 
         public void ChangePage(object sender, FireEventArgs e)

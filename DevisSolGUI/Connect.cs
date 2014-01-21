@@ -29,5 +29,9 @@ namespace DevisSolGUI
                 return false;
             }
         }
+
+        public override void AtStart()
+        {
+        }
     }
 }

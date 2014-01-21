@@ -36,5 +36,10 @@ namespace DevisSolGUI
         {
             ChangePage(1);
         }
+
+        public override void AtStart()
+        {
+
+        }
     }
 }
