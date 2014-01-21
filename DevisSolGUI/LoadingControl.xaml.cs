@@ -31,5 +31,13 @@ namespace DevisSolGUI
             get { return (Boolean)GetValue(StartAnimProperty); }
             set { SetValue(StartAnimProperty, value); }
         }
+
+        public static readonly DependencyProperty LeaveAnimProperty = DependencyProperty.Register("LeaveAnim", typeof(Boolean), typeof(LoadingControl), new PropertyMetadata(false));
+
+        public Boolean LeaveAnim
+        {
+            get { return (Boolean)GetValue(LeaveAnimProperty); }
+            set { SetValue(StartAnimProperty, value); }
+        }
     }
 }

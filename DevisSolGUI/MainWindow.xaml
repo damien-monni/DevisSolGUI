@@ -102,8 +102,8 @@
         <DataTemplate DataType="{x:Type local:Connect}">
 
             <StackPanel>
-                <TextBlock HorizontalAlignment="Center" FontSize="40" Margin="0 40 0 20" Foreground="#EEE" FontFamily="/content/font/#SEOptimistLight">Test de connexion au serveu ISI...</TextBlock>
-                <local:LoadingControl StartAnim="{Binding ConnectingAnim}"/>
+                <TextBlock HorizontalAlignment="Center" FontSize="40" Margin="0 40 0 20" Foreground="#EEE" FontFamily="/content/font/#SEOptimistLight">Test de connexion au serveur ISI...</TextBlock>
+                <local:LoadingControl StartAnim="{Binding ConnectingAnim}" LeaveAnim="{Binding ConnectSuccessAnim}"/>
             </StackPanel>
 
         </DataTemplate>

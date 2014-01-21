@@ -5,6 +5,7 @@ using System.Text;
 using System.ComponentModel;
 using System.Net.NetworkInformation;
 using System.Net;
+using System.Threading;
 
 namespace DevisSolGUI
 {
@@ -24,8 +25,20 @@ namespace DevisSolGUI
             }
         }
 
-        public bool IsConnected { get; set; }
-
+        private Boolean _connectSuccessAnim;
+        public Boolean ConnectSuccessAnim
+        {
+            get
+            {
+                return _connectSuccessAnim;
+            }
+            set
+            {
+                _connectSuccessAnim = value;
+                OnPropertyChanged("ConnectSuccessAnim");
+            }
+        }
+        
         public Connect()
         {
             Id = 1;
@@ -53,8 +66,7 @@ namespace DevisSolGUI
             bool ping = this.PingServer("10.199.137.90");
             if (ping == true)
             {
-                IsConnected = true;
-                Console.WriteLine("test");
+                ConnectSuccessAnim = true;
             }
             else
             {
