@@ -11,13 +11,15 @@ namespace DevisSolGUI
     class Connect : Page
     {
 
+        public bool IsConnected { get; set; }
+
         public Connect()
         {
             Id = 1;
         }
 
         //Ping l'adresse "ip"
-        public static bool pingServer(string ip)
+        public bool PingServer(string ip)
         {
             Ping ping = new Ping();
             if (ping.Send(IPAddress.Parse(ip)).Status == IPStatus.Success)
@@ -32,6 +34,15 @@ namespace DevisSolGUI
 
         public override void AtStart()
         {
+            bool ping = this.PingServer("10.199.137.90");
+            if (ping == true)
+            {
+                IsConnected = true;
+            }
+            else
+            {
+                IsConnected = false;
+            }
         }
     }
 }

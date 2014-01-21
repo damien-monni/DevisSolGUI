@@ -39,7 +39,6 @@ namespace DevisSolGUI
 
         public override void AtStart()
         {
-
         }
     }
 }
